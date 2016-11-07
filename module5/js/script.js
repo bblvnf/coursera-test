@@ -54,7 +54,7 @@ var switchMenuToActive = function () {
 
   // Add 'active' to menu button if not already there
   classes = document.querySelector("#navMenuButton").className;
-  if (classes.indexOf("active") == -1) {
+  if (classes.indexOf("active") === -1) {
     classes += " active";
     document.querySelector("#navMenuButton").className = classes;
   }
@@ -84,7 +84,7 @@ showLoading("#main-content");
 $ajaxUtils.sendGetRequest(
   allCategoriesUrl,
   function(categories) {
-  	buildAndShowHomeHTML(categories);
+    buildAndShowHomeHTML(categories);
   }, // ***** <---- TODO: STEP 1: Substitute [...] ******
   true); // Explicitely setting the flag to get JSON from server processed into an object literal
 });
@@ -118,6 +118,7 @@ function buildAndShowHomeHTML (categories) {
       // it into the home html snippet.
       //
       var homeHtmlToInsertIntoMainPage = insertProperty(homeHtml, 'randomCategoryShortName', '\''+chosenCategoryShortName+'\'');
+
 
 
       // TODO: STEP 4: Insert the the produced HTML in STEP 3 into the main page
@@ -299,7 +300,7 @@ function buildMenuItemsViewHtml(categoryMenuItems,
                      menuItems[i].description);
 
     // Add clearfix after every second menu item
-    if (i % 2 != 0) {
+    if (i % 2 !== 0) {
       html +=
         "<div class='clearfix visible-lg-block visible-md-block'></div>";
     }
